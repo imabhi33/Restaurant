@@ -1,0 +1,179 @@
+.admin-tables-page {
+  padding: 20px 0;
+}
+
+.tables-cockpit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  align-items: start;
+}
+
+.cockpit-card h3,
+.list-card h3 {
+  font-family: 'Cinzel', serif;
+  color: var(--text-primary);
+  font-size: 18px;
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  position: relative;
+  display: inline-block;
+  text-transform: uppercase;
+}
+
+.cockpit-card h3::after,
+.list-card h3::after {
+  content: '';
+  position: absolute;
+  bottom: -6px;
+  left: 0;
+  width: 30px;
+  height: 1.5px;
+  background: var(--primary-gold);
+}
+
+/* Visual Floor Plan Seating Node Grid */
+.floor-plan-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  gap: 15px;
+  max-height: 520px;
+  overflow-y: auto;
+  padding-right: 5px;
+}
+
+.floor-table-node {
+  background: rgba(212, 175, 55, 0.04);
+  border: 1px solid var(--border-gold-rgba);
+  border-radius: 6px;
+  padding: 16px 10px;
+  text-align: center;
+  box-shadow: var(--shadow-inset);
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+}
+
+.floor-table-node:hover {
+  border-color: var(--primary-gold);
+  background-color: rgba(212, 175, 55, 0.08);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.15);
+  transform: translateY(-3px);
+}
+
+.node-icon {
+  font-size: 24px;
+  color: var(--primary-gold);
+  margin-bottom: 8px;
+  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.2));
+}
+
+.node-details {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.node-title {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+.node-seater {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+.node-location {
+  font-size: 10px;
+  color: var(--primary-gold);
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.empty-floor-plan {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 50px 20px;
+  color: var(--text-muted);
+  font-size: 14px;
+}
+
+/* Seater label in ledger */
+.table-capacity-label {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  background: rgba(212, 175, 55, 0.06);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  color: var(--primary-gold);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 1024px) {
+  .tables-cockpit-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .floor-plan-grid {
+    max-height: 320px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cockpit-card h3,
+  .list-card h3 {
+    font-size: 15px;
+  }
+
+  .floor-plan-grid {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
+    gap: 10px;
+    max-height: 260px;
+  }
+
+  .floor-table-node {
+    min-height: 90px;
+    padding: 12px 8px;
+  }
+
+  .node-icon {
+    font-size: 20px;
+  }
+
+  /* Horizontal scroll for table ledger on mobile */
+  .bookings-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .data-table {
+    min-width: 480px;
+    font-size: 12px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 10px 8px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .floor-plan-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}

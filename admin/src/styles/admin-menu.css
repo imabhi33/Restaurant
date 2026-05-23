@@ -1,0 +1,292 @@
+.admin-menu-page {
+  padding: 20px 0;
+}
+
+.header-info h1 {
+  font-size: 38px;
+  font-family: 'Cinzel', serif;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 8px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.header-info p {
+  color: var(--text-muted);
+  font-size: 15px;
+}
+
+.page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 45px;
+  gap: 20px;
+}
+
+.filter-section {
+  margin-bottom: 35px;
+}
+
+.filter-buttons {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  padding: 10px 24px;
+  border: 1px solid var(--border-gold-rgba);
+  background: rgba(12, 2, 4, 0.4);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.filter-btn:hover {
+  border-color: var(--primary-gold);
+  color: var(--primary-gold);
+  background-color: rgba(212, 175, 55, 0.05);
+}
+
+.filter-btn.active {
+  background: var(--gold-gradient);
+  border-color: var(--primary-gold);
+  color: var(--text-dark);
+  box-shadow: 0 4px 15px rgba(212, 175, 55, 0.2);
+}
+
+/* Menu Table Items */
+.menu-thumb {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  border: 1px solid var(--border-gold-rgba);
+  box-shadow: var(--shadow-inset);
+}
+
+.menu-type-badge {
+  display: inline-block;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+}
+
+.menu-type-badge.veg {
+  background-color: rgba(46, 125, 50, 0.12);
+  color: #81c784;
+  border: 1px solid rgba(46, 125, 50, 0.3);
+}
+
+.menu-type-badge.non-veg {
+  background-color: rgba(198, 40, 40, 0.12);
+  color: #e57373;
+  border: 1px solid rgba(198, 40, 40, 0.3);
+}
+
+/* Modal elements are now defined globally in globals.css */
+
+/* Switches & Toggles */
+.toggle-row {
+  display: flex;
+  gap: 30px;
+  margin-bottom: 24px;
+}
+
+.toggle-container {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  cursor: pointer;
+}
+
+.toggle-container input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--primary-gold);
+  cursor: pointer;
+}
+
+.toggle-label {
+  font-size: 13.5px;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.5px;
+}
+
+/* Cloudinary Upload Box */
+.upload-box {
+  border: 1px dashed var(--border-gold-rgba);
+  border-radius: 4px;
+  background: rgba(12, 2, 4, 0.3);
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.upload-box:hover {
+  border-color: var(--primary-gold);
+  background: rgba(212, 175, 55, 0.02);
+}
+
+.upload-placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 20px;
+  cursor: pointer;
+  color: var(--text-muted);
+  gap: 8px;
+}
+
+.upload-placeholder svg {
+  font-size: 36px;
+  color: var(--primary-gold);
+  filter: drop-shadow(0 0 4px rgba(212, 175, 55, 0.2));
+}
+
+.upload-placeholder span {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.upload-placeholder small {
+  font-size: 11px;
+  color: rgba(220, 211, 193, 0.4);
+}
+
+.image-preview-container {
+  position: relative;
+  padding: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+.image-preview {
+  max-height: 160px;
+  object-fit: contain;
+  border-radius: 4px;
+  border: 1px solid var(--border-gold-rgba);
+}
+
+.remove-img {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: var(--accent-crimson);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 11px;
+  transition: all 0.3s ease;
+}
+
+.remove-img:hover {
+  background-color: var(--accent-crimson-light);
+  transform: scale(1.1);
+}
+
+/* Modal actions are now defined globally in globals.css */
+
+.spin {
+  animation: rotate 1s linear infinite;
+  font-size: 28px;
+  color: var(--primary-gold);
+}
+
+@keyframes rotate {
+  100% { transform: rotate(360deg); }
+}
+
+@media (max-width: 900px) {
+  .filter-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 6px;
+  }
+
+  .filter-btn {
+    padding: 8px 10px;
+    font-size: 10px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .page-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .page-header .btn {
+    width: 100%;
+    justify-content: center;
+  }
+  
+  .form-grid {
+    grid-template-columns: 1fr;
+    gap: 15px;
+  }
+  
+  .toggle-row {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  /* Horizontal scroll for menu table on mobile */
+  .bookings-table {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .data-table {
+    min-width: 580px;
+    font-size: 12px;
+  }
+
+  .data-table th,
+  .data-table td {
+    padding: 10px 8px;
+    white-space: nowrap;
+  }
+
+  .filter-buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .menu-thumb {
+    width: 40px;
+    height: 40px;
+  }
+
+  .header-info h1 {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 480px) {
+  .filter-buttons {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

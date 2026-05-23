@@ -1,0 +1,291 @@
+.admin-experiences-page {
+  padding: 20px 0;
+}
+
+.cockpit-header-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 30px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+  padding-bottom: 20px;
+}
+
+.cockpit-main-title {
+  font-family: 'Cinzel', serif;
+  font-size: 26px;
+  font-weight: 800;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.cockpit-subtitle {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+/* Experiences Registry Table */
+.ledger-table-wrapper {
+  overflow-x: auto;
+  margin-top: 10px;
+}
+
+.ledger-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.ledger-table th {
+  font-family: 'Cinzel', serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--primary-gold);
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  padding: 16px 20px;
+  border-bottom: 2px solid rgba(212, 175, 55, 0.15);
+  background: rgba(12, 2, 4, 0.3);
+}
+
+.ledger-table td {
+  padding: 18px 20px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.08);
+  font-size: 14px;
+  color: var(--text-primary);
+  vertical-align: middle;
+}
+
+.ledger-table tbody tr {
+  transition: all 0.3s ease;
+}
+
+.ledger-table tbody tr:hover {
+  background-color: rgba(212, 175, 55, 0.02);
+}
+
+.ledger-table tbody tr.inactive-row {
+  opacity: 0.65;
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+/* Experience Detail Cell */
+.experience-detail-cell {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.exp-badge {
+  font-family: 'Cinzel', serif;
+  font-size: 9px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  border: 1px solid;
+  text-transform: uppercase;
+  flex-shrink: 0;
+}
+
+.exp-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.exp-main-title {
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.exp-subtitle {
+  font-size: 12px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+.timing-cell {
+  font-family: 'Cinzel', serif;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--primary-gold);
+}
+
+/* Color Dot Preview */
+.color-cell-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.color-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+.color-cell-wrapper code {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+/* Icon Cell Badge */
+.icon-preview-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(12, 2, 4, 0.6);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.icon-lbl {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+
+/* Status Toggle Button */
+.status-toggle-btn {
+  background: transparent;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 15px;
+  cursor: pointer;
+  padding: 6px 12px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+.status-toggle-btn svg {
+  font-size: 18px;
+}
+
+.status-toggle-btn.active {
+  color: #81c784;
+}
+
+.status-toggle-btn.inactive {
+  color: #e57373;
+}
+
+.status-toggle-btn:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+/* Action Buttons */
+.action-btns {
+  display: flex;
+  gap: 8px;
+}
+
+.action-btn {
+  background: rgba(12, 2, 4, 0.7);
+  border: 1px solid var(--border-gold-rgba);
+  color: var(--text-muted);
+  width: 32px;
+  height: 32px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 13px;
+}
+
+.action-btn.edit:hover {
+  border-color: var(--primary-gold);
+  color: var(--primary-gold);
+  background-color: rgba(212, 175, 55, 0.05);
+}
+
+.action-btn.delete:hover {
+  border-color: var(--error-color);
+  color: #ff8a80;
+  background-color: rgba(198, 40, 40, 0.1);
+}
+
+/* Empty State */
+.empty-state {
+  text-align: center;
+  padding: 60px 20px;
+}
+
+.empty-icon {
+  font-size: 42px;
+  color: rgba(212, 175, 55, 0.2);
+  margin-bottom: 16px;
+  animation: floatIcon 3s infinite alternate ease-in-out;
+}
+
+@keyframes floatIcon {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+
+.empty-state p {
+  color: var(--text-muted);
+  font-size: 14.5px;
+  max-width: 420px;
+  margin: 0 auto;
+}
+
+@media (max-width: 768px) {
+  .cockpit-header-row {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 15px;
+    text-align: center;
+  }
+
+  .create-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .cockpit-main-title {
+    font-size: 20px;
+  }
+
+  /* Horizontal scroll for the ledger table on mobile */
+  .ledger-table-wrapper {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .ledger-table {
+    min-width: 600px;
+    font-size: 12px;
+  }
+
+  .ledger-table th,
+  .ledger-table td {
+    padding: 12px 14px;
+    white-space: nowrap;
+  }
+}
+
+@media (max-width: 480px) {
+  .cockpit-main-title {
+    font-size: 17px;
+  }
+}

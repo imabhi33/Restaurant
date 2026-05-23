@@ -1,0 +1,114 @@
+.profile-page {
+  padding: 60px 0 80px;
+  background-color: var(--bg-dark-main);
+  min-height: 100vh;
+}
+
+.profile-header {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.profile-header h1 {
+  font-size: 42px;
+  font-family: 'Cinzel', serif;
+  background: var(--gold-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.4));
+}
+
+.profile-header p {
+  color: var(--text-muted);
+  font-size: 15px;
+  letter-spacing: 0.5px;
+}
+
+.profile-card {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--border-gold-rgba);
+  border-radius: 8px;
+  padding: 40px;
+  max-width: 650px;
+  margin: 0 auto;
+  box-shadow: var(--shadow-crimson), var(--shadow-inset);
+  position: relative;
+}
+
+.profile-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--gold-gradient);
+  border-radius: 8px 8px 0 0;
+}
+
+.profile-form {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.form-section h3 {
+  color: var(--primary-gold);
+  margin-bottom: 24px;
+  font-size: 18px;
+  font-family: 'Cinzel', serif;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(212, 175, 55, 0.1);
+  position: relative;
+}
+
+.form-section h3::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 40px;
+  height: 1.5px;
+  background: var(--gold-gradient);
+}
+
+.profile-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  margin-top: 15px;
+}
+
+.profile-actions button {
+  flex: 1;
+  max-width: 200px;
+}
+
+@media (max-width: 768px) {
+  .profile-page {
+    padding: 40px 0;
+  }
+
+  .profile-card {
+    padding: 30px 20px;
+  }
+
+  .profile-actions {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .profile-actions button {
+    max-width: 100%;
+    width: 100%;
+  }
+}
