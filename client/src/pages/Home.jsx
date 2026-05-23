@@ -31,6 +31,8 @@ export default function Home() {
   const [timeSlot, setTimeSlot] = useState('11:00-12:30');
   const [guests, setGuests] = useState('2');
   const [signatureDishes, setSignatureDishes] = useState([]);
+  const [activeDishSlide, setActiveDishSlide] = useState(0);
+  const [dishesPerView, setDishesPerView] = useState(3);
   const [settings, setSettings] = useState(null);
   
   // Dynamic Experience Slider state
@@ -108,6 +110,19 @@ export default function Home() {
   };
 
   useEffect(() => {
+    const updateDishesPerView = () => {
+      if (window.innerWidth <= 768) {
+        setDishesPerView(1);
+      } else if (window.innerWidth <= 1100) {
+        setDishesPerView(2);
+      } else {
+        setDishesPerView(3);
+      }
+    };
+
+    updateDishesPerView();
+    window.addEventListener('resize', updateDishesPerView);
+
     const fetchTables = async () => {
       try {
         const response = await tableService.getAllTables();
@@ -120,7 +135,7 @@ export default function Home() {
       try {
         const response = await menuService.getAllMenuItems();
         const items = response.data.items || response.data.menuItems || [];
-        setSignatureDishes(items.slice(0, 3));
+        setSignatureDishes(items);
       } catch (error) {
         console.error('Error fetching menu items:', error);
       }
@@ -150,6 +165,8 @@ export default function Home() {
     fetchMenu();
     fetchExperiences();
     fetchSettings();
+
+    return () => window.removeEventListener('resize', updateDishesPerView);
   }, []);
 
   // Smooth scroll to Experiences section if navigated from another page
@@ -215,6 +232,20 @@ export default function Home() {
   const prevSlide = () => {
     if (experiences.length === 0) return;
     setActiveSlide((prev) => (prev - 1 + experiences.length) % experiences.length);
+  };
+
+  const totalDishSlides = Math.max(1, signatureDishes.length - dishesPerView + 1);
+
+  const nextDishSlide = () => {
+    setActiveDishSlide((prev) => (prev + 1) % totalDishSlides);
+  };
+
+  const prevDishSlide = () => {
+    setActiveDishSlide((prev) => (prev - 1 + totalDishSlides) % totalDishSlides);
+  };
+
+  const handleDishImageError = (e) => {
+    e.currentTarget.src = lipsticDosaImg;
   };
 
   const timeSlots = [
@@ -582,7 +613,18 @@ export default function Home() {
             <span className="section-subtitle">Heritage Delicacies</span>
             <h2 className="section-title">Our Royal Signatures</h2>
           </div>
-          <div className="grid grid-3">
+          <div className="menu-slider-shell">
+            {signatureDishes.length > dishesPerView && (
+              <button className="menu-slider-nav prev" onClick={prevDishSlide} aria-label="Previous dishes">
+                <FaChevronLeft />
+              </button>
+            )}
+
+            <div className="menu-slider-viewport">
+              <div
+                className="menu-slider-track"
+                style={{ transform: `translateX(-${activeDishSlide * (100 / dishesPerView)}%)` }}
+              >
             {signatureDishes.length > 0 ? (
               signatureDishes.map((dish, idx) => (
                 <motion.div
@@ -594,7 +636,13 @@ export default function Home() {
                   transition={{ delay: idx * 0.15, duration: 0.6 }}
                 >
                   <div className="dish-image-wrapper">
-                    <img src={dish.image} alt={dish.name} className="dish-image" loading="lazy" />
+                    <img
+                      src={dish.image || lipsticDosaImg}
+                      alt={dish.name}
+                      className="dish-image"
+                      loading="lazy"
+                      onError={handleDishImageError}
+                    />
                     <span className="dish-badge">{dish.category ? dish.category.toUpperCase().replace('-', ' ') : 'SPECIAL'}</span>
                   </div>
                   <div className="dish-info">
@@ -660,7 +708,28 @@ export default function Home() {
                 </div>
               </>
             )}
+              </div>
+            </div>
+
+            {signatureDishes.length > dishesPerView && (
+              <button className="menu-slider-nav next" onClick={nextDishSlide} aria-label="Next dishes">
+                <FaChevronRight />
+              </button>
+            )}
           </div>
+
+          {signatureDishes.length > dishesPerView && (
+            <div className="menu-slider-dots">
+              {Array.from({ length: totalDishSlides }).map((_, idx) => (
+                <button
+                  key={idx}
+                  className={`menu-slider-dot ${idx === activeDishSlide ? 'active' : ''}`}
+                  onClick={() => setActiveDishSlide(idx)}
+                  aria-label={`Go to dishes slide ${idx + 1}`}
+                />
+              ))}
+            </div>
+          )}
         </div>
       </section>
 
