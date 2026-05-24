@@ -253,3 +253,36 @@
     margin-bottom: 30px;
   }
 }
+
+@media (max-width: 480px) {
+  .page-title {
+    font-size: 26px;
+    letter-spacing: 1px;
+  }
+
+  .booking-form-card {
+    padding: 18px 14px;
+  }
+
+  .form-section {
+    margin-bottom: 28px;
+    padding-bottom: 20px;
+  }
+
+  .form-section h3 {
+    font-size: 16px;
+  }
+
+  .tables-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .table-option {
+    padding: 16px 12px;
+  }
+
+  .info-card {
+    padding: 18px 14px;
+  }
+}

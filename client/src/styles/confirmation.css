@@ -240,6 +240,46 @@
   }
 }
 
+@media (max-width: 480px) {
+  .confirmation-page {
+    padding: 30px 0;
+  }
+
+  .confirmation-card {
+    padding: 18px 12px;
+    border-radius: 8px;
+  }
+
+  .confirmation-header {
+    margin-bottom: 24px;
+    padding-bottom: 18px;
+  }
+
+  .confirmation-header h1 {
+    font-size: 22px;
+  }
+
+  .booking-id {
+    font-size: 16px;
+    letter-spacing: 1px;
+    overflow-wrap: anywhere;
+  }
+
+  .detail-item {
+    padding: 14px 12px;
+  }
+
+  .confirmation-footer {
+    padding: 16px 12px;
+  }
+
+  .confirmation-footer ol {
+    margin-left: 16px;
+    line-height: 1.8;
+    font-size: 13px;
+  }
+}
+
 @media print {
   body {
     background: #ffffff !important;

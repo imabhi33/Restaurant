@@ -1382,6 +1382,71 @@
   }
 }
 
+@media (max-width: 480px) {
+  .hero {
+    padding: 105px 12px 80px;
+  }
+
+  .hero-title {
+    font-size: 40px;
+    letter-spacing: 2px;
+  }
+
+  .hero-subtitle {
+    font-size: 13px;
+    letter-spacing: 2px;
+  }
+
+  .hero-teaser-banner {
+    font-size: 12px;
+    letter-spacing: 1px;
+    padding: 7px 10px;
+  }
+
+  .countdown-grid {
+    gap: 8px;
+  }
+
+  .countdown-card {
+    padding: 10px 6px;
+  }
+
+  .countdown-num {
+    font-size: 20px;
+  }
+
+  .countdown-subtext {
+    font-size: 10px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    letter-spacing: 1px;
+  }
+
+  .section-subtitle {
+    font-size: 11px;
+    letter-spacing: 2px;
+  }
+
+  .dish-image-wrapper {
+    height: 210px;
+  }
+
+  .dish-info {
+    padding: 16px;
+  }
+
+  .slide-title {
+    font-size: 18px;
+  }
+
+  .slide-desc,
+  .dish-description {
+    font-size: 13px;
+  }
+}
+
 /* Grand entrance firework celebration overlay */
 .entrance-celebration-overlay {
   position: fixed;

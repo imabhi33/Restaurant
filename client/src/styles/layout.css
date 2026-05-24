@@ -227,13 +227,14 @@
     gap: 0;
     max-height: 0;
     overflow: hidden;
+    overflow-y: auto;
     transition: max-height 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     width: 100%;
     border-bottom: 1px solid var(--border-gold-rgba);
   }
 
   .navbar-items.active {
-    max-height: 450px;
+    max-height: calc(100vh - 72px);
   }
 
   .nav-item {
@@ -251,5 +252,34 @@
   .footer-content {
     grid-template-columns: 1fr;
     gap: 45px;
+  }
+
+  .footer {
+    padding: 60px 0 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar {
+    padding: 12px 0;
+  }
+
+  .navbar-brand img {
+    height: 38px !important;
+  }
+
+  .nav-item {
+    font-size: 12px;
+    padding: 16px;
+  }
+
+  .footer-section h3,
+  .footer-section h4 {
+    font-size: 16px;
+  }
+
+  .footer-section p,
+  .footer-bottom {
+    font-size: 12px;
   }
 }
