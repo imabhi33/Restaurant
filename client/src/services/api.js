@@ -65,3 +65,7 @@ export const authService = {
 export const restaurantService = {
   getSettings: () => axios.get(`${API_URL}/restaurant`),
 };
+
+export const priceMenuService = {
+  getAll: () => axios.get(`${API_URL}/price-menu`),
+};

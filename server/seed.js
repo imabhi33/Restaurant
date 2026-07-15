@@ -38,34 +38,22 @@ const tables = [
 
 const menuItems = [
   {
-    name: 'Royal Odia Mutton Kasa',
+    name: 'Lipstic Dosa',
     description:
-      'A rich, dark slow-cooked tender goat meat dish cooked in traditional mustard oil, caramelized onions, and stone-ground spices.',
-    price: 480,
-    category: 'main-course',
-    image: 'https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=600&q=80',
-    isVeg: false,
-    isSpicy: true,
-    spicyLevel: 2,
-    bestseller: true,
-  },
-  {
-    name: 'Temple Style Dalma',
-    description:
-      'Authentic Cuttack temple-style roasted split moong dal cooked with raw banana, pumpkin, yam, flavored with ghee and tempered spices.',
-    price: 290,
-    category: 'main-course',
-    image: 'https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=600&q=80',
+      'A beautiful signature Odia crepe styled with beetroot extract for a vibrant crimson touch, stuffed with tempered root veggie filling and fresh grated coconut.',
+    price: 89,
+    category: 'specials',
+    image: 'https://images.unsplash.com/photo-1668236543090-82eba5ee5976?auto=format&fit=crop&w=600&q=80',
     isVeg: true,
     isSpicy: false,
     spicyLevel: 0,
     bestseller: true,
   },
   {
-    name: 'Smoked Cardamom Chhena Poda',
+    name: 'Potola Mitha',
     description:
-      "Odisha's legendary caramelized cottage cheese cake, slow-baked overnight with cardamom, cashew nuts, and golden raisins.",
-    price: 150,
+      'Authentic sweet of Odisha made of tender pointed gourd stuffed with cardamom-infused royal chhena and slow-cooked in sugar syrup.',
+    price: 70,
     category: 'desserts',
     image: 'https://images.unsplash.com/photo-1589301760014-d929f3979dbc?auto=format&fit=crop&w=600&q=80',
     isVeg: true,
@@ -74,35 +62,23 @@ const menuItems = [
     bestseller: true,
   },
   {
-    name: 'Dahi Pakhala',
+    name: 'Mutton Biryani',
     description:
-      'Traditional fermented rice in lightly sour curd, tempered with curry leaves, mustard, ginger, and green chili. A classic summer Odia comfort dish.',
-    price: 180,
-    category: 'main-course',
-    image: 'https://images.unsplash.com/photo-1631452180519-c014fe946bc7?auto=format&fit=crop&w=600&q=80',
-    isVeg: true,
-    isSpicy: false,
-    spicyLevel: 0,
+      'Fragrant, long-grain Basmati rice layered with tender pieces of slow-cooked goat meat, flavored with saffron, rose water, and royal spices.',
+    price: 230,
+    category: 'rice',
+    image: 'https://images.unsplash.com/photo-1633945274405-b6c8069047b0?auto=format&fit=crop&w=600&q=80',
+    isVeg: false,
+    isSpicy: true,
+    spicyLevel: 2,
     bestseller: true,
   },
   {
-    name: 'Santula',
+    name: 'Hyderabadi Biryani',
     description:
-      'Lightly spiced mixed vegetable medley with pumpkin, papaya, brinjal, and potato, cooked Odia-style for clean and earthy flavors.',
-    price: 220,
-    category: 'main-course',
-    image: 'https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=600&q=80',
-    isVeg: true,
-    isSpicy: false,
-    spicyLevel: 0,
-    bestseller: false,
-  },
-  {
-    name: 'Chingudi Checha',
-    description:
-      'Smoky mashed prawns with mustard, garlic, onion, and green chili, finished with mustard oil for a bold coastal Odia punch.',
-    price: 420,
-    category: 'main-course',
+      'Traditional spiced chicken biryani slow-cooked in "dum" style with aromatic spices, mint leaves, fried onions, and saffron milk.',
+    price: 140,
+    category: 'rice',
     image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?auto=format&fit=crop&w=600&q=80',
     isVeg: false,
     isSpicy: true,
@@ -110,28 +86,16 @@ const menuItems = [
     bestseller: true,
   },
   {
-    name: 'Kakara Pitha',
+    name: 'Veg Thali',
     description:
-      'Soft semolina and wheat dumplings stuffed with coconut and jaggery, shallow-fried till golden and served warm.',
-    price: 140,
-    category: 'desserts',
-    image: 'https://images.unsplash.com/photo-1517244683847-7456b63c5969?auto=format&fit=crop&w=600&q=80',
+      'A complete Indian thali platter with rice, mixed dal, seasonal vegetables, papad, curd, sweet dish, and fresh salad.',
+    price: 90,
+    category: 'main-course',
+    image: 'https://images.unsplash.com/photo-1610192244261-3f33de3f55e4?auto=format&fit=crop&w=600&q=80',
     isVeg: true,
     isSpicy: false,
     spicyLevel: 0,
-    bestseller: false,
-  },
-  {
-    name: 'Bela Pana',
-    description:
-      'Refreshing Odia summer cooler made with wood apple pulp, black pepper, jaggery, and aromatic spices.',
-    price: 110,
-    category: 'beverages',
-    image: 'https://images.unsplash.com/photo-1553530666-ba11a90bb918?auto=format&fit=crop&w=600&q=80',
-    isVeg: true,
-    isSpicy: false,
-    spicyLevel: 0,
-    bestseller: false,
+    bestseller: true,
   },
 ];
 
@@ -248,6 +212,7 @@ const upsertTables = async () => {
 };
 
 const upsertMenuItems = async () => {
+  await MenuItem.deleteMany({});
   for (const item of menuItems) {
     await MenuItem.updateOne(
       { name: item.name },

@@ -13,6 +13,7 @@ const menuRoutes = require('./routes/menuRoutes');
 const uploadRoutes = require('./routes/uploadRoutes');
 const eventRoutes = require('./routes/eventRoutes');
 const restaurantRoutes = require('./routes/restaurantRoutes');
+const priceListRoutes = require('./routes/priceListRoutes');
 
 const app = express();
 
@@ -54,6 +55,7 @@ app.use('/api/menu', menuRoutes);
 app.use('/api/upload', uploadRoutes);
 app.use('/api/events', eventRoutes);
 app.use('/api/restaurant', restaurantRoutes);
+app.use('/api/price-menu', priceListRoutes);
 
 // 404 handler
 app.use((req, res) => {

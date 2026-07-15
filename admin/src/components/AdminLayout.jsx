@@ -87,6 +87,7 @@ export default function AdminLayout({ children }) {
     { icon: FaCalendar, label: 'Bookings', path: '/admin/bookings' },
     { icon: FaTable, label: 'Tables', path: '/admin/tables' },
     { icon: FaUtensils, label: 'Menu', path: '/admin/menu' },
+    { icon: FaUtensils, label: 'Price Menu', path: '/admin/price-menu' },
     { icon: FaCrown, label: 'Experiences', path: '/admin/experiences' },
     { icon: FaCog, label: 'Settings', path: '/admin/settings' },
   ];

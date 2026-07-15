@@ -9,6 +9,7 @@ import AdminTables from './pages/Tables';
 import AdminMenu from './pages/Menu';
 import AdminExperiences from './pages/Experiences';
 import AdminSettings from './pages/Settings';
+import AdminPriceMenu from './pages/PriceMenu';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/admin-auth.css';
 import './styles/admin-layout.css';
@@ -28,6 +29,7 @@ function App() {
                   <Route path="/bookings" element={<AdminBookings />} />
                   <Route path="/tables" element={<AdminTables />} />
                   <Route path="/menu" element={<AdminMenu />} />
+                  <Route path="/price-menu" element={<AdminPriceMenu />} />
                   <Route path="/experiences" element={<AdminExperiences />} />
                   <Route path="/settings" element={<AdminSettings />} />
                   <Route path="/" element={<Navigate to="/admin/dashboard" replace />} />

@@ -9,6 +9,7 @@ import BookingForm from './pages/BookingForm';
 import BookingConfirmation from './pages/BookingConfirmation';
 import MyBookings from './pages/MyBookings';
 import Profile from './pages/Profile';
+import PriceMenu from './pages/PriceMenu';
 import 'react-toastify/dist/ReactToastify.css';
 import './styles/globals.css';
 
@@ -25,6 +26,7 @@ function App() {
             <Route path="/booking-confirmation/:bookingId" element={<BookingConfirmation />} />
             <Route path="/my-bookings" element={<MyBookings />} />
             <Route path="/profile" element={<Profile />} />
+            <Route path="/menu-prices" element={<PriceMenu />} />
           </Route>
         </Routes>
       </Router>

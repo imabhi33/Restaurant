@@ -7,7 +7,8 @@
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
     "test": "jest",
-    "seed": "node seed.js"
+    "seed": "node seed.js",
+    "seed:price-menu": "node seedPriceMenu.js"
   },
   "keywords": [
     "restaurant",

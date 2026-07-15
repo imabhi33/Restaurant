@@ -992,11 +992,259 @@
   padding: 80px 0;
 }
 
-.menu-slider-shell {
-  display: grid;
-  grid-template-columns: auto 1fr auto;
-  gap: 14px;
+/* =============================================
+   3-CARD DISH CAROUSEL
+   ============================================= */
+.dish-carousel-shell {
+  display: flex;
   align-items: center;
+  gap: 16px;
+  position: relative;
+  margin-top: 10px;
+}
+
+.dish-carousel-arrow {
+  background: rgba(22, 4, 8, 0.85);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  color: var(--primary-gold);
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  font-size: 15px;
+  transition: all 0.3s ease;
+  z-index: 5;
+}
+
+.dish-carousel-arrow:hover {
+  background: var(--gold-gradient);
+  color: var(--text-dark);
+  border-color: transparent;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px rgba(212, 175, 55, 0.3);
+}
+
+.dish-carousel-viewport {
+  flex: 1;
+  overflow: hidden;
+  min-width: 0;
+}
+
+.dish-carousel-track {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+}
+
+/* Individual card */
+.dish-carousel-card {
+  background: rgba(22, 4, 8, 0.75);
+  border: 1px solid rgba(212, 175, 55, 0.12);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(8px);
+  position: relative;
+}
+
+.dish-carousel-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(212, 175, 55, 0.35);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.35), 0 0 20px rgba(212, 175, 55, 0.08);
+}
+
+/* Image wrapper */
+.dcc-img-wrap {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.dcc-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.dish-carousel-card:hover .dcc-img {
+  transform: scale(1.06);
+}
+
+.dcc-img-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 3, 2, 0.7) 0%, transparent 55%);
+  pointer-events: none;
+}
+
+.dcc-category-badge {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: var(--gold-gradient);
+  color: var(--text-dark);
+  font-family: 'Cinzel', serif;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  padding: 5px 12px;
+  border-radius: 20px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Card body */
+.dcc-body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.dcc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.dcc-name {
+  font-family: 'Cinzel', serif;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--text-primary);
+  letter-spacing: 0.3px;
+  line-height: 1.35;
+  margin: 0;
+  flex: 1;
+}
+
+.dcc-price {
+  font-family: 'Cinzel', serif;
+  font-size: 19px;
+  font-weight: 800;
+  color: var(--primary-gold);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.dcc-desc {
+  font-size: 13px;
+  color: var(--text-muted);
+  line-height: 1.55;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.dcc-footer {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 4px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(212, 175, 55, 0.1);
+}
+
+.dcc-diet-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.8px;
+  padding: 3px 10px;
+  border-radius: 4px;
+  border: 1px solid;
+}
+
+.dcc-diet-tag.veg {
+  color: #4caf50;
+  border-color: rgba(76, 175, 80, 0.35);
+  background: rgba(76, 175, 80, 0.06);
+}
+
+.dcc-diet-tag.nonveg {
+  color: #e57373;
+  border-color: rgba(229, 115, 115, 0.35);
+  background: rgba(229, 115, 115, 0.06);
+}
+
+.dcc-diet-dot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: currentColor;
+}
+
+.dcc-spicy-tag {
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Cinzel', serif;
+  letter-spacing: 0.8px;
+  color: rgba(212, 175, 55, 0.8);
+  background: rgba(212, 175, 55, 0.07);
+  border: 1px solid rgba(212, 175, 55, 0.2);
+  padding: 3px 10px;
+  border-radius: 4px;
+}
+
+/* Carousel dots */
+.dish-carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 28px;
+}
+
+.dish-carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: none;
+  background: rgba(212, 175, 55, 0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.dish-carousel-dot.active {
+  width: 28px;
+  background: var(--primary-gold);
+  box-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+@media (max-width: 900px) {
+  .dish-carousel-track {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dish-carousel-card:last-child {
+    display: none;
+  }
+}
+
+@media (max-width: 580px) {
+  .dish-carousel-track {
+    grid-template-columns: 1fr;
+  }
+  .dish-carousel-card:nth-child(2),
+  .dish-carousel-card:last-child {
+    display: none;
+  }
+  .dish-carousel-arrow {
+    width: 38px;
+    height: 38px;
+    font-size: 13px;
+  }
 }
 
 .menu-slider-viewport {
@@ -1175,10 +1423,11 @@
 .stats {
   position: relative;
   background: 
-    linear-gradient(0deg, rgba(12, 2, 4, 0.85) 0%, rgba(12, 2, 4, 0.85) 100%),
+    linear-gradient(90deg, rgba(15, 1, 3, 0.92) 0%, rgba(52, 7, 10, 0.84) 50%, rgba(15, 1, 3, 0.9) 100%),
     url('https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
   background-attachment: fixed;
   border-bottom: 1px solid var(--border-gold-rgba);
+  overflow: hidden;
 }
 
 .stats::before {
@@ -1188,30 +1437,30 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background: radial-gradient(circle at center, rgba(139, 0, 0, 0.25) 0%, rgba(12, 2, 4, 0.85) 75%);
+  background: radial-gradient(ellipse at center, rgba(133, 18, 22, 0.2) 0%, rgba(12, 2, 4, 0.55) 72%);
   pointer-events: none;
 }
 
 .stats-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  gap: 0;
   position: relative;
   z-index: 2;
   text-align: center;
 }
 
 .stat-item {
-  padding: 40px 20px;
+  padding: 64px 20px;
   position: relative;
 }
 
 .stat-item::after {
   content: '';
   position: absolute;
-  right: -15px;
-  top: 25%;
-  height: 50%;
+  right: 0;
+  top: 24%;
+  height: 52%;
   width: 1px;
   background: linear-gradient(to bottom, transparent, var(--border-gold-rgba), transparent);
 }
@@ -1221,10 +1470,10 @@
 }
 
 .stat-number {
-  font-size: 56px;
+  font-size: clamp(52px, 4.5vw, 72px);
   font-weight: 800;
   font-family: 'Cinzel', serif;
-  margin-bottom: 8px;
+  margin-bottom: 18px;
   background: var(--gold-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -1233,7 +1482,7 @@
 }
 
 .stat-label {
-  font-size: 15px;
+  font-size: 16px;
   color: var(--text-primary);
   font-family: 'Cinzel', serif;
   letter-spacing: 2px;
@@ -1644,4 +1893,161 @@
   font-size: 13.5px;
   color: var(--text-muted);
   line-height: 1.6;
+}
+
+/* =============================================
+   MAIN DISHES GRID (5 Signature Dishes)
+   ============================================= */
+.main-dishes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+  margin-top: 50px;
+}
+
+@media (max-width: 1100px) {
+  .main-dishes-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 640px) {
+  .main-dishes-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+
+.main-dish-card {
+  background: linear-gradient(160deg, rgba(22, 10, 5, 0.9) 0%, rgba(30, 15, 5, 0.95) 100%);
+  border: 1px solid rgba(212, 175, 55, 0.15);
+  border-radius: 20px;
+  overflow: hidden;
+  transition: border-color 0.35s ease, box-shadow 0.35s ease;
+  cursor: pointer;
+}
+
+.main-dish-card:hover {
+  border-color: rgba(212, 175, 55, 0.45);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 30px rgba(212, 175, 55, 0.08);
+}
+
+/* Make the 4th and 5th cards centered in the 3-col grid */
+.main-dishes-grid .main-dish-card:nth-child(4) {
+  grid-column: 1;
+}
+
+@media (min-width: 1101px) {
+  .main-dishes-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  /* Center last 2 cards that form an incomplete row */
+  .main-dishes-grid .main-dish-card:nth-child(4) {
+    grid-column: 1 / 2;
+    margin-left: calc(50% + 14px);
+    transform-origin: center;
+  }
+  .main-dishes-grid .main-dish-card:nth-child(4),
+  .main-dishes-grid .main-dish-card:nth-child(5) {
+    grid-column: auto;
+  }
+  /* Use subgrid trick to center last row */
+  .main-dishes-grid {
+    grid-template-columns: repeat(6, 1fr);
+  }
+  .main-dish-card:nth-child(1) { grid-column: 1 / 3; }
+  .main-dish-card:nth-child(2) { grid-column: 3 / 5; }
+  .main-dish-card:nth-child(3) { grid-column: 5 / 7; }
+  .main-dish-card:nth-child(4) { grid-column: 2 / 4; }
+  .main-dish-card:nth-child(5) { grid-column: 4 / 6; }
+}
+
+.main-dish-img-wrapper {
+  position: relative;
+  width: 100%;
+  height: 220px;
+  overflow: hidden;
+}
+
+.main-dish-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.main-dish-card:hover .main-dish-img {
+  transform: scale(1.07);
+}
+
+.main-dish-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(10, 3, 2, 0.85) 0%, transparent 60%);
+  pointer-events: none;
+}
+
+.main-dish-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  padding: 4px 12px;
+  border-radius: 30px;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #fff;
+  z-index: 2;
+  font-family: 'Cinzel', serif;
+}
+
+.main-dish-tag-corner {
+  position: absolute;
+  bottom: 14px;
+  right: 14px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  z-index: 2;
+}
+
+.diet-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.main-dish-info {
+  padding: 20px 22px 24px;
+}
+
+.main-dish-label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-family: 'Cinzel', serif;
+}
+
+.main-dish-name {
+  font-family: 'Cinzel', serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--text-cream);
+  margin: 8px 0 10px;
+  line-height: 1.3;
+}
+
+.main-dish-desc {
+  font-size: 13.5px;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin: 0;
 }

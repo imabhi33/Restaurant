@@ -119,7 +119,8 @@ export default function Layout() {
               </>
             )}
 
-            {!isAuthenticated && (
+            {/* Login and registration controls are temporarily hidden from the UI. */}
+            {/* {!isAuthenticated && (
               <>
                 <button
                   className={`nav-item ${isActive('/login') ? 'active' : ''}`}
@@ -140,7 +141,7 @@ export default function Layout() {
                   Register
                 </button>
               </>
-            )}
+            )} */}
           </div>
         </div>
       </nav>

@@ -58,6 +58,13 @@ export const adminMenuService = {
     axios.delete(`${API_URL}/menu/${itemId}`, getAuthHeader()),
 };
 
+export const adminPriceMenuService = {
+  getAll: () => axios.get(`${API_URL}/price-menu/admin/all`, getAuthHeader()),
+  create: (data) => axios.post(`${API_URL}/price-menu`, data, getAuthHeader()),
+  update: (itemId, data) => axios.put(`${API_URL}/price-menu/${itemId}`, data, getAuthHeader()),
+  remove: (itemId) => axios.delete(`${API_URL}/price-menu/${itemId}`, getAuthHeader()),
+};
+
 export const adminUploadService = {
   uploadImage: (base64Image) =>
     axios.post(`${API_URL}/upload`, { image: base64Image }, getAuthHeader()),
