@@ -204,11 +204,11 @@ export default function BookingForm() {
                     name="bookingDate"
                     value={formData.bookingDate}
                     onChange={handleChange}
-                    min="2026-06-01"
+                    min="2026-07-16"
                     required
                   />
                   <small style={{ color: 'var(--primary-gold)', fontSize: '11px', marginTop: '4px', display: 'block', letterSpacing: '0.5px' }}>
-                    * Accepting reservations for Grand Opening (June 1, 2026) onwards!
+                    * Accepting reservations for the Grand Opening on Rath Yatra (July 16, 2026) onwards!
                   </small>
                 </div>
 

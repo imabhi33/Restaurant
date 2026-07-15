@@ -20,6 +20,7 @@ import {
 } from 'react-icons/fa';
 import { tableService, menuService, eventService, restaurantService } from '../services/api';
 import lipsticDosaImg from '../assets/image.png';
+import potolaMithaImg from '../assets/ptolomitha.jpeg';
 import logo1Img from '../assets/logo1.png';
 import '../styles/home.css';
 
@@ -27,7 +28,7 @@ export default function Home() {
   const navigate = useNavigate();
   const location = useLocation();
   const [availableTables, setAvailableTables] = useState(0);
-  const [bookingDate, setBookingDate] = useState('2026-06-01');
+  const [bookingDate, setBookingDate] = useState('2026-07-16');
   const [timeSlot, setTimeSlot] = useState('11:00-12:30');
   const [guests, setGuests] = useState('2');
   const [signatureDishes, setSignatureDishes] = useState([]);
@@ -39,7 +40,7 @@ export default function Home() {
   const [experiences, setExperiences] = useState([]);
   const [activeSlide, setActiveSlide] = useState(0);
 
-  const targetDate = new Date('2026-06-01T11:00:00+05:30'); // Indian Standard Time Grand Opening
+  const targetDate = new Date('2026-07-16T11:00:00+05:30'); // Indian Standard Time Grand Opening
 
   // Grand Entrance Firework state: only show before opening time
   const [showEntranceCelebration, setShowEntranceCelebration] = useState(() => {
@@ -260,7 +261,7 @@ export default function Home() {
   const handleCheckAvailability = () => {
     navigate('/booking', {
       state: {
-        bookingDate: bookingDate || '2026-06-01',
+        bookingDate: bookingDate || '2026-07-16',
         timeSlot: timeSlot || '11:00-12:30',
         guests: parseInt(guests) || 2
       }
@@ -335,7 +336,7 @@ export default function Home() {
           </div>
 
           <p className="hero-teaser-banner">
-            ✨ GRAND OPENING — JUNE 1ST, 2026 ✨
+            ✨ GRAND OPENING — JULY 16TH, 2026 • AUSPICIOUS RATH YATRA ✨
           </p>
 
           {/* Glowing Countdown Widget */}
@@ -416,7 +417,7 @@ export default function Home() {
                   type="date"
                   value={bookingDate}
                   onChange={(e) => setBookingDate(e.target.value)}
-                  min="2026-06-01"
+                  min="2026-07-16"
                 />
               </div>
 
@@ -522,6 +523,82 @@ export default function Home() {
                     👑 A Papalicious Signature Masterpiece
                   </span>
                   <motion.button 
+                    className="btn btn-outline"
+                    onClick={() => navigate('/booking')}
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <FaUtensils /> Reserve Your Table Seating
+                  </motion.button>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Heritage Sweet Spotlight: Potola Mitha */}
+      <section className="dish-spotlight-section">
+        <div className="container">
+          <div className="section-title-wrapper">
+            <span className="section-subtitle">An Odia Sweet Tradition</span>
+            <h2 className="section-title">A Taste of Authentic Heritage</h2>
+          </div>
+
+          <div className="spotlight-card">
+            <div className="spotlight-badge-corner">AUTHENTIC ODIA MITHA</div>
+            <div className="spotlight-grid">
+              <motion.div
+                className="spotlight-image-container"
+                initial={{ opacity: 0, x: -30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7 }}
+              >
+                <div className="image-gold-frame">
+                  <img src={potolaMithaImg} alt="Potola Mitha" className="spotlight-img" />
+                </div>
+              </motion.div>
+
+              <motion.div
+                className="spotlight-content"
+                initial={{ opacity: 0, x: 30 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.7, delay: 0.15 }}
+              >
+                <span className="dish-highlight-category">A Beloved Odisha Delicacy</span>
+                <h3 className="spotlight-dish-name">Potola Mitha</h3>
+
+                <p className="spotlight-dish-desc">
+                  An exquisite sweet from Odisha, Potola Mitha transforms tender pointed gourd into a celebration of texture, fragrance, and timeless local craft.
+                </p>
+                <p className="spotlight-dish-desc">
+                  Delicately prepared with a rich chhena filling, slow-cooked in fragrant syrup, and finished with a festive touch of dry fruits—every bite is softly sweet, elegant, and memorable.
+                </p>
+
+                <div className="spotlight-dish-features">
+                  <div className="dish-feature-item">
+                    <FaCheckCircle style={{ color: 'var(--primary-gold)' }} />
+                    <span>Traditional Chhena Filling</span>
+                  </div>
+                  <div className="dish-feature-item">
+                    <FaCheckCircle style={{ color: 'var(--primary-gold)' }} />
+                    <span>Slow-Cooked in Aromatic Syrup</span>
+                  </div>
+                  <div className="dish-feature-item">
+                    <FaCheckCircle style={{ color: 'var(--primary-gold)' }} />
+                    <span>Handcrafted Odia Recipe</span>
+                  </div>
+                  <div className="dish-feature-item">
+                    <FaCheckCircle style={{ color: 'var(--primary-gold)' }} />
+                    <span>A Perfect Festive Indulgence</span>
+                  </div>
+                </div>
+
+                <div className="spotlight-action-row">
+                  <span className="spotlight-availability-notice">A Papalicious Heritage Sweet</span>
+                  <motion.button
                     className="btn btn-outline"
                     onClick={() => navigate('/booking')}
                     whileHover={{ scale: 1.05 }}
