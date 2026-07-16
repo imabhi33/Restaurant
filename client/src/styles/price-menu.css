@@ -101,6 +101,14 @@
   text-align: left;
 }
 
+.menu-fallback-notice {
+  margin: 8px 0 0 0;
+  font-size: 12px;
+  color: rgba(212, 175, 55, 0.55);
+  font-family: 'Cinzel', serif;
+  letter-spacing: 1px;
+}
+
 /* Search Box in Header */
 .menu-header-search {
   width: 100%;
